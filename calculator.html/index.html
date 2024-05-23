@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Calculator</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: gold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .calculator {
+            background-color: #1c1c1c;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 0px 20px rgb(53, 53, 52);
+        }
+
+        .calculator input[type="button"], .calculator input[type="reset"], .calculator input[type="textfield"] {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            font-size: 1.5rem;
+            border: 50;
+            border-radius: 5px;
+            background-color: #333;
+            color: gold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 4px 10px rgba(72, 57, 51, 0.5);
+        }
+
+        .calculator input[type="button"]:hover, .calculator input[type="reset"]:hover {
+            background-color: #555;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.7);
+        }
+
+        .calculator input[type="textfield"] {
+            width: 100%;
+            height: 50px;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 50;
+            border-radius: 5px;
+            background-color: #333;
+            color: gold;
+            text-align: right;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .calculator input[type="reset"] {
+            width: calc(50px + 30px);
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <form name="calculator">
+            <input type="textfield" name="ans" value=""><br>
+            <input type="button" value="1" onClick="document.calculator.ans.value+='1'">
+            <input type="button" value="2" onClick="document.calculator.ans.value+='2'">
+            <input type="button" value="3" onClick="document.calculator.ans.value+='3'">
+            <input type="button" value="DEL" onClick="delLastChar()"><br>
+            <input type="button" value="4" onClick="document.calculator.ans.value+='4'">
+            <input type="button" value="5" onClick="document.calculator.ans.value+='5'">
+            <input type="button" value="6" onClick="document.calculator.ans.value+='6'">
+            <input type="button" value="C" onClick="document.calculator.ans.value=''"><br>
+            <input type="button" value="7" onClick="document.calculator.ans.value+='7'">
+            <input type="button" value="8" onClick="document.calculator.ans.value+='8'">
+            <input type="button" value="9" onClick="document.calculator.ans.value+='9'">
+            <input type="button" value="(" onClick="document.calculator.ans.value+='('"><br>
+            <input type="button" value="0" onClick="document.calculator.ans.value+='0'">
+            <input type="button" value="+" onClick="document.calculator.ans.value+='+'">
+            <input type="button" value="-" onClick="document.calculator.ans.value+='-'">
+            <input type="button" value=")" onClick="document.calculator.ans.value+=')'"><br>
+            <input type="button" value="*" onClick="document.calculator.ans.value+='*'">
+            <input type="button" value="/" onClick="document.calculator.ans.value+='/'">
+            <input type="button" value="=" onClick="document.calculator.ans.value=eval(document.calculator.ans.value)">
+
+            <input type="reset" value="Reset">
+        </form>
+    </div>
+    <script>
+        function delLastChar() {
+            var currentValue = document.calculator.ans.value;
+            document.calculator.ans.value = currentValue.slice(0, -1);
+        }
+    </script>
+</body>
+</html>
